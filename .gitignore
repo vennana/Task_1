@@ -1,5 +1,10 @@
-.pytest_cache/
 __pycache__/
-htmlcov/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
 .coverage
+*.log
+.idea/
+.vscode/
 *.html
