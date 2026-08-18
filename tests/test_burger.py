@@ -4,34 +4,6 @@ from praktikum.burger import Burger
 
 
 class TestBurger:
-    @pytest.fixture
-    def mock_bun(self):
-        """Фикстура для мока булочки"""
-        bun = Mock()
-        bun.get_name.return_value = "black bun"
-        bun.get_price.return_value = 100
-        return bun
-
-    @pytest.fixture
-    def mock_ingredients(self):
-        """Фикстура для моков ингредиентов"""
-        ing1 = Mock()
-        ing1.get_name.return_value = "hot sauce"
-        ing1.get_price.return_value = 100
-        ing1.get_type.return_value = "SAUCE"
-
-        ing2 = Mock()
-        ing2.get_name.return_value = "cutlet"
-        ing2.get_price.return_value = 150
-        ing2.get_type.return_value = "FILLING"
-
-        ing3 = Mock()
-        ing3.get_name.return_value = "sour cream"
-        ing3.get_price.return_value = 200
-        ing3.get_type.return_value = "SAUCE"
-
-        return [ing1, ing2, ing3]
-
     # Тесты для set_buns()
     def test_set_buns_sets_bun_correctly(self, mock_bun):
         burger = Burger()
@@ -150,9 +122,9 @@ class TestBurger:
             "= sauce hot sauce =\n"
             "= filling cutlet =\n"
             "= sauce sour cream =\n"
-            "(==== black bun ====)\n"  
-            "\n"                       
-            "Price: 650"               
+            "(==== black bun ====)\n"
+            "\n"
+            "Price: 650"
         )
         assert burger.get_receipt() == expected
 
@@ -162,9 +134,9 @@ class TestBurger:
 
         expected = (
             "(==== black bun ====)\n"
-            "(==== black bun ====)\n"  
-            "\n"                       
-            "Price: 200"               
+            "(==== black bun ====)\n"
+            "\n"
+            "Price: 200"
         )
         assert burger.get_receipt() == expected
 
@@ -180,9 +152,9 @@ class TestBurger:
         expected = (
             "(==== black bun ====)\n"
             "= sauce hot sauce =\n"
-            "(==== black bun ====)\n"  
-            "\n"                       
-            "Price: 300"               
+            "(==== black bun ====)\n"
+            "\n"
+            "Price: 300"
         )
         assert burger.get_receipt() == expected
 
@@ -199,8 +171,8 @@ class TestBurger:
         expected = (
             "(==== black bun ====)\n"
             "= sauce hot sauce =\n"
-            "(==== black bun ====)\n"  
-            "\n"                       
-            "Price: 251.25"            
+            "(==== black bun ====)\n"
+            "\n"
+            "Price: 251.25"
         )
         assert burger.get_receipt() == expected
